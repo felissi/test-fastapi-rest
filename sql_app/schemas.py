@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class CustomerBase(BaseModel):
     customer_name: str
@@ -6,10 +7,10 @@ class CustomerBase(BaseModel):
     contact_first_name:str
     phone: str
     address_line_1: str
-    address_line_2 : str
+    address_line_2: Optional[str]
     city: str
-    state: str
-    postal_code: str
+    state: Optional[str]
+    postal_code: Optional[str]
     country: str
 
 class CustomerCreate(CustomerBase):
@@ -17,7 +18,7 @@ class CustomerCreate(CustomerBase):
 
 class Customer(CustomerBase):
     customer_number: int
-    sales_rep_employee_number: int
-    credit_limit: int
+    sales_rep_employee_number: Optional[int]
+    credit_limit: Optional[int]
     class Config:
         orm_mode = True

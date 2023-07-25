@@ -1,8 +1,13 @@
-from sqlalchemy import create_engine,text
+from sqlalchemy import create_engine, text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+username = 'root'
+password = 'root'
+host = '127.0.0.1'
+port = '3306'
+database = 'classicmodels'
 engine = create_engine(
-    "mysql+pymysql://root:root@127.0.0.1:3306/classicmodels"
+    f"mysql+pymysql://{username}:{password}@{host}:{port}/{database}"
 )
 Base = declarative_base()
 SessionLocal = sessionmaker(engine)
